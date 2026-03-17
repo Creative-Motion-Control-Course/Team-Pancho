@@ -1,6 +1,6 @@
 # StepDance Course Project Portfolio
 
-This repository is your project portfolio for the StepDance course. You will use it to store code and documentation for each project you complete.
+This repository is your project portfolio for the Creative Motion Control course. You will use it to store code and documentation for each project you complete.
 
 ## Repository Structure
 
@@ -10,7 +10,7 @@ projects/
     code/          ← Your Arduino/C++ code
     docs/
       index.md     ← Project write-up (text, images, video)
-      assets/      ← Images and media files
+      assets/      ← Images and media filesgi
   project2/
     ...
 ```
