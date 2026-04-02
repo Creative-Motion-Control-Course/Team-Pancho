@@ -13,7 +13,7 @@ title: Home
   <img src="assets/member1.jpg" alt="Member 1 photo" width="150" style="border-radius: 50%;">
   <h3>Taneesha Panda</h3>
   <p><em>B.S., Data Science</em></p>
-  <p> Taneesha is a fourth-year undergraduate studying data science with a minor in Art and Technology. She has been involved in the 4Eyes Lab exploring haptic systems, robotics, and HCI. In this course, she is interested in exploring the space where CNC machines support human intention and creativity, redefining them as instruments you develop a feel for, rather than simply operate.</p>
+  <p> Taneesha is a fourth-year undergraduate studying Data Science with a minor in Art and Technology. She has been involved in the 4Eyes Lab exploring haptic systems, robotics, and HCI. In this course, she is interested in exploring the space where CNC machines support human intention and creativity, redefining them as instruments you develop a feel for rather than simply operate.</p>
 </div>
 
 <div style="text-align: center; max-width: 200px;">
