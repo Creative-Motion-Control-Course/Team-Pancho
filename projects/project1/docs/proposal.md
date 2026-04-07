@@ -37,6 +37,3 @@ How do we handle lag and noise in the continuous signal (rather than just a disc
 ## Materials Required
 * Pulse reader/heartrate sensor
 * Experimental art mediums
-
----
-*Replace the images above with your own, or update the file paths as needed.*
