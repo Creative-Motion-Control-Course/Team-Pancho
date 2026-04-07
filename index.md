@@ -17,10 +17,10 @@ title: Home
 </div>
 
 <div style="text-align: center; max-width: 200px;">
-  <img src="assets/member2.jpg" alt="Member 2 photo" width="150" style="border-radius: 50%;">
-  <h3>First Last</h3>
-  <p><em>Role or Major</em></p>
-  <p>A short bio — background, interests, what you're excited to explore in this course.</p>
+  <img src="https://secure.gravatar.com/avatar/45f04425a50e727e9b2505e9eaabdbdb235e22c43b405358671f8ab960dc9538?s=150&d=mm&r=g" alt="Member 2 photo" width="150" style="border-radius: 50%;">
+  <h3>Benjamin Ancho</h3>
+  <p><em>B.S., Data Science * B.A., Sociology</em></p>
+  <p>Benjamin is a second-year undergraduate student studying Data Science and Sociology with minors in Mathematics and Media Art & Design. He has taken two undergraduate MAD classes exploring how technology has changed the way people design. In this course, he is interested in learning how custom CNC machines allow for designs that traditional CNC machines cannot.</p>
 </div>
 
 <!-- Copy the block above to add more team members -->
