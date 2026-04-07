@@ -5,41 +5,38 @@ title: "Project 1 Proposal"
 
 # Project 1 Proposal
 
-## Project Title [OUR AMAZING PLOTTER]
+## Vital Lines: Our "Live" Plotter
 
 ## Idea
 
-Briefly describe the idea for your project
+Inspired by the "liveness" dimension of this project, we decided to take that principle literally by working with biometric data — one's heartbeat in particular. Users wear a pulse-rate sensor and the AxiDraw translates the live waveform data into a slowly accumulating line drawing. The finished result simultaneously resembles a medical ECG readout and a deeply personal portrait of the body's internal rhythm.
 
 ## Inspiration
 
-What existing projects (your own or the work of others) inspired you for this idea?
-Include example images and videos!
+Our inspiration starts with Heartbeat Drawing Sasaki. His process involves attaching a pulse sensor to a participant, playing their heartbeat aloud through a speaker, and drawing the audible waveform by hand. Our project occupies a similar space, incorporating CNC automation as the machine draws from live biological data, while the operator shapes the output through adjustable parameters.
 
-Example Image
-![Inspiration image](assets/sample_image.jpg)
+![Sasaki Image](assets/sasaki1.jpg)
+![Sasaki2 image](assets/sasaki2.jpg)
 
-Example Video Embedding
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/196317031?h=6e5e7b8b2e" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-<p><a href="https://vimeo.com/196317031">Sample Vimeo Video</a> from <a href="https://vimeo.com/user123456">Vimeo User</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-
-
+Other references:
+- Mesel Isaac's HeartBot: an installation where viewers place their finger on a heart rate sensor and a machine creates a drawing of dots and waves in response to their live heartbeat, with the cumulative result of 60 different people's interactions building up on a single canvas
+- BioMECI is an organization working at the intersection of biology, media, and creative inquiry; their projects demonstrate the expressive potential of biometric data as an artistic medium
 
 ## Proposed Design
 
-Outline your proposed system and interaction. What will the machine do? What will the operator do? What do you expect the output to look like?
+The machine draws in horizontal passes across the page, with the amplitude of each line driven by live pulse data. Users can adjust parameters on the Stepdance module board to control drawing speed and line density. We also plan to experiment with layering passes and different drawing media. The goal is essentially shaping the aesthetic character of the output without overriding the heartbeat data itself. 
 
 ## Planned Implementation
 
-Describe your plan for implementing the project, including hardware and software you intend to use. This can be basic as you are only just starting to learn Stepdance!
+Pulse reader → Arduino for sensor output + pass values over serial → run Stepdance → map to AxiDraw motion parameters
 
 ## Major Challenges / Questions
 
-What are the major questions you have / what challenges do you think this project will pose?
+How do we handle lag and noise in the continuous signal (rather than just a discrete BPM integer) in order to pass it into Stepdance?
 
 ## Materials Required
-
-What beyond the current kit of parts do you expect to need?
+* Pulse reader/heartrate sensor
+* Experimental art mediums
 
 ---
 *Replace the images above with your own, or update the file paths as needed.*
