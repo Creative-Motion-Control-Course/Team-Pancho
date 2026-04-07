@@ -25,6 +25,7 @@ Other references:
 
 - BioMECI is an organization working at the intersection of biology, media, and creative inquiry; their projects demonstrate the expressive potential of biometric data as an artistic medium
 
+![BioMeci](assets/biomeci.jpeg)
 ## Proposed Design
 
 The machine draws in horizontal passes across the page, with the amplitude of each line driven by live pulse data. Users can adjust parameters on the Stepdance module board to control drawing speed and line density. We also plan to experiment with layering passes and different drawing media. The goal is essentially shaping the aesthetic character of the output without overriding the heartbeat data itself. 
