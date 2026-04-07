@@ -9,7 +9,7 @@ title: "Project 1 Proposal"
 
 ## Idea
 
-Inspired by the "liveness" dimension of this project, we decided to take that principle literally by working with biometric data — one's heartbeat in particular. Users wear a pulse-rate sensor and the AxiDraw translates the live waveform data into a slowly accumulating line drawing. The finished result simultaneously resembles a medical ECG readout and a deeply personal portrait of the body's internal rhythm.
+Inspired by the "liveness" dimension of this project, we decided to take that principle literally by working with human pulse-rate data. Users wear a pulse-rate sensor and the AxiDraw translates the live waveform data into a slowly accumulating line drawing. The finished result simultaneously resembles a medical ECG readout and a personalized portrait of the body's internal rhythm.
 
 ## Inspiration
 
