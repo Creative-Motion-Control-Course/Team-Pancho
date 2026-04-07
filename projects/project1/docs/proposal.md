@@ -20,6 +20,9 @@ Our inspiration starts with Heartbeat Drawing Sasaki. His process involves attac
 
 Other references:
 - Mesel Isaac's HeartBot: an installation where viewers place their finger on a heart rate sensor and a machine creates a drawing of dots and waves in response to their live heartbeat, with the cumulative result of 60 different people's interactions building up on a single canvas
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/104567379?h=f59c4a3558" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+
 - BioMECI is an organization working at the intersection of biology, media, and creative inquiry; their projects demonstrate the expressive potential of biometric data as an artistic medium
 
 ## Proposed Design
