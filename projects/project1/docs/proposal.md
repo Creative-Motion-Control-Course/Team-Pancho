@@ -41,4 +41,4 @@ How do we handle lag and noise in the continuous signal (rather than just a disc
 
 ## Materials Required
 * Pulse reader/heartrate sensor
-* Experimental art mediums
+* Experimenting with mediums: watercolor pens, oil pastel + blending stick, scratch-reveal paper
