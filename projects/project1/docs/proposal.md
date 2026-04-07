@@ -29,9 +29,11 @@ Other references:
 
 ## Proposed Design
 
-The machine draws in horizontal passes across the page, with the amplitude of each line driven by live pulse data. Users can adjust parameters on the Stepdance module board to control drawing speed and line density. We also plan to experiment with layering passes and different drawing media. The goal is essentially shaping the aesthetic character of the output without overriding the heartbeat data itself. 
+The machine draws in horizontal passes across the page, with the amplitude of each line driven by live pulse data. Users can adjust parameters on the Stepdance module board to control noise, line continuity, and line density. We also plan to experiment with layering passes and different drawing media. The goal is essentially shaping the aesthetic character of the output without overriding the heartbeat data itself. 
 
 ## Planned Implementation
+
+![Implemntation](assets/proposal.png)
 
 Pulse reader → Arduino for sensor output + pass values over serial → run Stepdance → map to AxiDraw motion parameters
 
