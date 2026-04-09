@@ -5,7 +5,7 @@ title: "Project 1 Proposal"
 
 # Project 1 Proposal
 
-## Vital Lines: Our "Live" Plotter
+## Vital Lines
 
 ## Idea
 
