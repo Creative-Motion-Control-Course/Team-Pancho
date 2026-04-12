@@ -1,5 +1,9 @@
 /*
   UCSB MAT Creative Motion Control -- Generators example (sine wave mod)
+
+  serial commands:
+  {"name": "set_x_amplitude", "args": [10]}
+  {"name": "set_x_frequency", "args": [2]}
 */
 
 #define module_driver   // tells compiler we're using the Stepdance Driver Module PCB
