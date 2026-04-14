@@ -52,8 +52,9 @@ WaveGenerator1D z_wave_gen;
 // -- Wave Generator for X axis (sine wave drawing) --
 WaveGenerator1D x_wave_gen;
 
-// NOTE: CircleGenerator removed. X axis is now driven by x_wave_gen.
-
+// Position Generator to move to a certain posisition
+PositionGenerator x_position_gen;
+PositionGenerator y_position_gen;
 
 void setup() {
   // -- Configure and start the output ports --
@@ -103,6 +104,13 @@ void setup() {
   x_wave_gen.output.map(&axidraw_kinematics.input_x);
   x_wave_gen.begin();
 
+  // Configure the posistion generator
+  x_position_gen.output.map(&axidraw_kinematics.input_x);
+  x_position_gen.begin();
+
+  y_position_gen.output.map(&axidraw_kinematics.input_y);
+  y_position_gen.begin();
+
   // -- Configure kinematics --
   axidraw_kinematics.begin();
   axidraw_kinematics.output_a.map(&channel_a.input_target_position);
@@ -111,14 +119,14 @@ void setup() {
   // -- Configure Button --
   button_d1.begin(IO_D1, INPUT_PULLDOWN);
   button_d1.set_mode(BUTTON_MODE_TOGGLE);
-  button_d1.set_callback_on_press(&pen_up);
-  button_d1.set_callback_on_release(&pen_down);
-
+  button_d1.set_callback_on_press(&next_line);
+  
   // -- Analog input maps to X wave amplitude --
   analog_a1.set_floor(1, 25);
   analog_a1.set_ceiling(50, 1020);
   analog_a1.map(&x_wave_gen.amplitude);
   analog_a1.begin(IO_A1);
+
 
   // -- RPC Interface --
   rpc.begin();
@@ -149,6 +157,7 @@ void setup() {
 }
 
 LoopDelay overhead_delay;
+
 
 void loop() {
   overhead_delay.periodic_call(&report_overhead, 500);
@@ -184,5 +193,18 @@ void set_x_frequency(float32_t frequency){
 }
 
 void report_overhead(){
+
+}
+
+void next_line() {
+  float saved_speed = vertical_velocity_gen.speed_units_per_sec;
+  vertical_velocity_gen.speed_units_per_sec = 0;
+
+  position_gen.go(4, ABSOLUTE, 100);
+  x_wave_gen.amplitude = 0;
+
+  float64_t current_y = axidraw_kinematics.input_y.read_absolute();
+  x_position_gen.go(0, ABSOLUTE, 100);
+  y_position_gen.go(current_y + 10, ABSOLUTE, 50);
 
 }
