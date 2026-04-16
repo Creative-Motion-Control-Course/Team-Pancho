@@ -39,6 +39,11 @@ AnalogInput analog_a1;
 // -- RPC --
 RPC rpc;
 
+// Storing the current x level 
+float64_t current_line_y = 15;
+
+// -- Time Based Interpolators for Pen XY --
+TimeBasedInterpolator time_based_interpolator;
 
 void setup() {
   Serial.begin(115200);
@@ -107,6 +112,20 @@ void setup() {
   rpc.enroll("set_x_frequency", set_x_frequency);
   rpc.enroll("set_z_amplitude", set_z_amplitude);
 
+
+  // Time based interpolator (can be used to queue motions)
+  time_based_interpolator.begin();
+  time_based_interpolator.output_x.map(&axidraw_kinematics.input_x);
+  time_based_interpolator.output_y.map(&axidraw_kinematics.input_y);
+  time_based_interpolator.output_z.map(&channel_z.input_target_position);
+
+  //...
+
+  // Set up RPC etc...
+  // {"name": "queue_xy_target", "args": [6, 5]}
+  // args are: absolute X, absolute Y
+  rpc.enroll("queue_xy_target", queue_xy_target);
+
   dance_start();
 }
 
@@ -114,6 +133,8 @@ LoopDelay overhead_delay;
 
 void loop() {
   overhead_delay.periodic_call(&report_overhead, 500);
+  y_motion()
+  
   dance_loop();
 }
 
@@ -141,6 +162,10 @@ void set_z_amplitude(float32_t amplitude) {
   z_wave_gen.amplitude = amplitude;
 }
 
-void report_overhead() {
+void y_motion() {
+  // Moves the header to the end of the page
+  queue_xy_target(current_line_x, 218)
+  queue_xy_target(current_line_x, 0)
 
 }
+
