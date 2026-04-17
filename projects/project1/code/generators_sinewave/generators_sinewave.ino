@@ -40,8 +40,7 @@ AnalogInput analog_a1;
 RPC rpc;
 
 // Storing the current position
-float64_t current_line_y = 15;
-float64_t current_line_x = 0;
+float64_t current_line_x = 15;
 
 // -- Time Based Interpolators for Pen XY --
 TimeBasedInterpolator time_based_interpolator;
@@ -77,10 +76,10 @@ void setup() {
   channel_z.begin(&output_c, SIGNAL_E);
   channel_z.set_ratio(1, 50);
 
-  // -- X wave generator --
+  //-- X wave generator --
   x_wave_gen.setNoInput();
   x_wave_gen.frequency = 1.0;  // Hz
-  x_wave_gen.amplitude = 10.0; // mm
+  x_wave_gen.amplitude = 1.0; // mm
   x_wave_gen.output.map(&axidraw_kinematics.input_x);
   x_wave_gen.begin();
 
@@ -135,13 +134,14 @@ void setup() {
   rpc.enroll("queue_xy_target", queue_xy_target);
 
   dance_start();
+
+  y_motion();
 }
 
 LoopDelay overhead_delay;
 
 void loop() {
   overhead_delay.periodic_call(&report_overhead, 500);
-  y_motion();
 
   dance_loop();
 }
@@ -172,16 +172,25 @@ void set_z_amplitude(float32_t amplitude) {
 
 void queue_xy_target(float64_t x, float64_t y) {
   // TODO: adjust this to match your stepdance API
-  time_based_interpolator.queue(x, y, 0);
+  time_based_interpolator.add_move(GLOBAL, 15.0, x, y, 0,0,0,0);
 }
 
-void report_overhead() {
-  // TODO: add your overhead reporting logic here
-  Serial.println("overhead report");
+void report_overhead(){
+  Serial.println("Positions (X, Y):");
+  Serial.print(axidraw_kinematics.input_x.read(ABSOLUTE));
+  Serial.print(",");
+  Serial.print(axidraw_kinematics.input_y.read(ABSOLUTE));
+  Serial.print("\n");
 }
 
 void y_motion() {
   // Moves the header to the end of the page
-  queue_xy_target(current_line_x, 218);
+  for (int i = 0; i < 5; i ++) {
+  queue_xy_target(current_line_x, 200);
+  current_line_x += 10;
+  queue_xy_target(current_line_x, 200);
   queue_xy_target(current_line_x, 0);
+  current_line_x += 10;
+  queue_xy_target(current_line_x, 0);
+}
 }
