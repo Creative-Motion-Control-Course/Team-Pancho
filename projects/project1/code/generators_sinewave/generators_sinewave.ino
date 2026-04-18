@@ -3,7 +3,7 @@
 
 serial commands:
 //   {"name": "set_x_amplitude", "args": [10]}
-//   {"name": "set_x_frequency", "args": [2]}
+//   {"name": "set_x_frequency", "args": [10]}
 */
 
 #define module_driver
@@ -33,14 +33,14 @@ VelocityGenerator vertical_velocity_gen;
 PositionGenerator position_gen;
 Button button_d1;
 
-// -- Potentiometer --
+// -- PulseRate Sensor --
 AnalogInput analog_a1;
 
 // -- RPC --
 RPC rpc;
 
 // Storing the current position
-float64_t current_line_x = 15;
+float64_t current_line_x = 10;
 
 // -- Time Based Interpolators for Pen XY --
 TimeBasedInterpolator time_based_interpolator;
@@ -48,7 +48,7 @@ TimeBasedInterpolator time_based_interpolator;
 // -- Forward declarations --
 void pen_down();
 void pen_up();
-void set_speed_y(float32_t speed);
+//void set_speed_y(float32_t speed);
 void set_x_amplitude(float32_t amplitude);
 void set_x_frequency(float32_t frequency);
 void set_z_amplitude(float32_t amplitude);
@@ -78,16 +78,16 @@ void setup() {
 
   //-- X wave generator --
   x_wave_gen.setNoInput();
-  x_wave_gen.frequency = 1.0;  // Hz
+  x_wave_gen.frequency = 10.0;  // Hz
   x_wave_gen.amplitude = 1.0; // mm
   x_wave_gen.output.map(&axidraw_kinematics.input_x);
   x_wave_gen.begin();
 
-  // -- Y velocity generator --
+  /* -- Y velocity generator --
   vertical_velocity_gen.begin();
   vertical_velocity_gen.speed_units_per_sec = 2.0; // mm/s
   vertical_velocity_gen.output.map(&axidraw_kinematics.input_y);
-
+*/
   // -- Z wave generator --
   z_wave_gen.setNoInput();
   z_wave_gen.frequency = 10.0;
@@ -107,8 +107,8 @@ void setup() {
   button_d1.set_callback_on_release(&pen_down);
 
   // -- Potentiometer maps to X amplitude --
-  analog_a1.set_floor(1, 25);
-  analog_a1.set_ceiling(50, 1020);
+  analog_a1.set_floor(0, 400);
+  analog_a1.set_ceiling(5, 800);
   analog_a1.map(&x_wave_gen.amplitude);
   analog_a1.begin(IO_A1);
 
@@ -118,7 +118,7 @@ void setup() {
 
   // -- RPC --
   rpc.begin();
-  rpc.enroll("set_speed_y", set_speed_y);
+  //rpc.enroll("set_speed_y", set_speed_y);
   rpc.enroll("set_x_amplitude", set_x_amplitude);
   rpc.enroll("set_x_frequency", set_x_frequency);
   rpc.enroll("set_z_amplitude", set_z_amplitude);
@@ -141,7 +141,7 @@ void setup() {
 LoopDelay overhead_delay;
 
 void loop() {
-  overhead_delay.periodic_call(&report_overhead, 500);
+  overhead_delay.periodic_call(&report_overhead, 100);
 
   dance_loop();
 }
@@ -154,9 +154,9 @@ void pen_up() {
   position_gen.go(4, ABSOLUTE, 100);
 }
 
-void set_speed_y(float32_t speed) {
+/*void set_speed_y(float32_t speed) {
   vertical_velocity_gen.speed_units_per_sec = speed;
-}
+}*/
 
 void set_x_amplitude(float32_t amplitude) {
   x_wave_gen.amplitude = amplitude;
@@ -181,16 +181,18 @@ void report_overhead(){
   Serial.print(",");
   Serial.print(axidraw_kinematics.input_y.read(ABSOLUTE));
   Serial.print("\n");
+
+  // Serial.println(analog_a1.read_raw());
 }
 
 void y_motion() {
   // Moves the header to the end of the page
-  for (int i = 0; i < 5; i ++) {
-  queue_xy_target(current_line_x, 200);
+  for (int i = 0; i < 1; i ++) {
+  queue_xy_target(current_line_x, 190);
   current_line_x += 10;
-  queue_xy_target(current_line_x, 200);
-  queue_xy_target(current_line_x, 0);
+  queue_xy_target(current_line_x, 190);
+  queue_xy_target(current_line_x, 10);
   current_line_x += 10;
-  queue_xy_target(current_line_x, 0);
+  queue_xy_target(current_line_x, 10);
 }
 }
