@@ -33,8 +33,9 @@ VelocityGenerator vertical_velocity_gen;
 PositionGenerator position_gen;
 Button button_d1;
 
-// -- PulseRate Sensor --
-AnalogInput analog_a1;
+// -- Analog Inputs --
+AnalogInput analog_a1;  // Heartbeat sensor — controls X amplitude (acts like a pot)
+AnalogInput analog_a2;  // Slider — controls X frequency (0–20 Hz)
 
 // -- RPC --
 RPC rpc;
@@ -48,7 +49,6 @@ TimeBasedInterpolator time_based_interpolator;
 // -- Forward declarations --
 void pen_down();
 void pen_up();
-//void set_speed_y(float32_t speed);
 void set_x_amplitude(float32_t amplitude);
 void set_x_frequency(float32_t frequency);
 void set_z_amplitude(float32_t amplitude);
@@ -106,11 +106,25 @@ void setup() {
   button_d1.set_callback_on_press(&pen_up);
   button_d1.set_callback_on_release(&pen_down);
 
-  // -- Potentiometer maps to X amplitude --
+  // -----------------------------------------------------------
+  // A1: Heartbeat sensor — acts like a potentiometer
+  // Maps the raw ADC range (400–800) to an amplitude of 0–5 mm.
+  // Controls how wide the X sine wave oscillates.
+  // -----------------------------------------------------------
   analog_a1.set_floor(0, 400);
   analog_a1.set_ceiling(5, 800);
   analog_a1.map(&x_wave_gen.amplitude);
   analog_a1.begin(IO_A1);
+
+  // -----------------------------------------------------------
+  // A2: Slider — acts like a potentiometer
+  // Maps the raw ADC range (400–800) to a frequency of 0–20 Hz.
+  // Controls how fast the X sine wave oscillates.
+  // -----------------------------------------------------------
+  analog_a2.set_floor(0, 400);
+  analog_a2.set_ceiling(20, 800);
+  analog_a2.map(&x_wave_gen.frequency);
+  analog_a2.begin(IO_A2);
 
   // -- Position generator --
   position_gen.output.map(&channel_z.input_target_position);
@@ -154,10 +168,6 @@ void pen_up() {
   position_gen.go(4, ABSOLUTE, 100);
 }
 
-/*void set_speed_y(float32_t speed) {
-  vertical_velocity_gen.speed_units_per_sec = speed;
-}*/
-
 void set_x_amplitude(float32_t amplitude) {
   x_wave_gen.amplitude = amplitude;
 }
@@ -181,18 +191,16 @@ void report_overhead(){
   Serial.print(",");
   Serial.print(axidraw_kinematics.input_y.read(ABSOLUTE));
   Serial.print("\n");
-
-  // Serial.println(analog_a1.read_raw());
 }
 
 void y_motion() {
   // Moves the header to the end of the page
   for (int i = 0; i < 1; i ++) {
-  queue_xy_target(current_line_x, 190);
-  current_line_x += 10;
-  queue_xy_target(current_line_x, 190);
-  queue_xy_target(current_line_x, 10);
-  current_line_x += 10;
-  queue_xy_target(current_line_x, 10);
-}
+    queue_xy_target(current_line_x, 190);
+    current_line_x += 10;
+    queue_xy_target(current_line_x, 190);
+    queue_xy_target(current_line_x, 10);
+    current_line_x += 10;
+    queue_xy_target(current_line_x, 10);
+  }
 }
