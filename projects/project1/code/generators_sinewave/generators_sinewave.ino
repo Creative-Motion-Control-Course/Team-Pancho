@@ -41,7 +41,7 @@ AnalogInput analog_a2;  // Slider — controls X frequency (0–20 Hz)
 RPC rpc;
 
 // Storing the current position
-float64_t current_line_x = 10;
+float64_t current_line_x = 25;
 
 // -- Time Based Interpolators for Pen XY --
 TimeBasedInterpolator time_based_interpolator;
@@ -121,7 +121,7 @@ void setup() {
   // Scales A1's output so you can attenuate the heartbeat amplitude
   // -----------------------------------------------------------
   analog_a2.set_floor(0.1, 400);
-  analog_a2.set_ceiling(1.0, 800);
+  analog_a2.set_ceiling(2.0, 800);
   analog_a2.begin(IO_A2);
 
   // -- Position generator --
@@ -202,7 +202,7 @@ void report_overhead(){
 void y_motion() {
   // Moves the header to the end of the page
   queue_xy_target(current_line_x, 10);
-  for (int i = 0; i < 5; i ++) {
+  for (int i = 0; i < 10; i++) {
     queue_xy_target(current_line_x, 190);
     current_line_x += 10;
     queue_xy_target(current_line_x, 190);
