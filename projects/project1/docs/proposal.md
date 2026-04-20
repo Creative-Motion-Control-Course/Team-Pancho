@@ -15,8 +15,8 @@ Inspired by the "liveness" dimension of this project, we decided to take that pr
 
 Our inspiration starts with Heartbeat Drawing Sasaki. His process involves attaching a pulse sensor to a participant, playing their heartbeat aloud through a speaker, and drawing the audible waveform by hand. Our project occupies a similar space, incorporating CNC automation as the machine draws from live biological data, while the operator shapes the output through adjustable parameters.
 
-![Sasaki Image](assets/sasaki1.jpg)
-![Sasaki2 image](assets/sasaki2.jpg)
+![Sasaki Image](assets/proposal/sasaki1.jpg)
+![Sasaki2 image](assets/proposal/sasaki2.jpg)
 
 Other references:
 - Mesel Isaac's HeartBot: an installation where viewers place their finger on a heart rate sensor and a machine creates a drawing of dots and waves in response to their live heartbeat, with the cumulative result of 60 different people's interactions building up on a single canvas
@@ -25,7 +25,7 @@ Other references:
 
 - BioMECI is an organization working at the intersection of biology, media, and creative inquiry; their projects demonstrate the expressive potential of biometric data as an artistic medium
 
-![BioMeci](assets/biomeci.jpeg)
+![BioMeci](assets/proposal/biomeci.jpeg)
 
 ## Proposed Design
 
@@ -33,7 +33,7 @@ The machine draws in horizontal passes across the page, with the amplitude of ea
 
 ## Planned Implementation
 
-![Implemntation](assets/proposal.png)
+![Implemntation](assets/proposal/map.png)
 
 Pulse reader → Arduino for sensor output + pass values over serial → run Stepdance → map to AxiDraw motion parameters
 
