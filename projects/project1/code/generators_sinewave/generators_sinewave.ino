@@ -105,6 +105,7 @@ void setup() {
   // No longer controls pen up/down — it starts the Y zigzag path.
   // -----------------------------------------------------------
   button_d1.begin(IO_D1, INPUT_PULLDOWN);
+  button_d1.set_mode(BUTTON_MODE_TOGGLE);
   button_d1.set_callback_on_press(&start_y_motion);
 
    // -----------------------------------------------------------
@@ -200,7 +201,7 @@ void report_overhead(){
 
 void y_motion() {
   // Moves the header to the end of the page
-  queue_xy_target(current_line_x, 10)
+  queue_xy_target(current_line_x, 10);
   for (int i = 0; i < 5; i ++) {
     queue_xy_target(current_line_x, 190);
     current_line_x += 10;
