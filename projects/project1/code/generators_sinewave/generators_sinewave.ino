@@ -107,24 +107,20 @@ void setup() {
   button_d1.begin(IO_D1, INPUT_PULLDOWN);
   button_d1.set_callback_on_press(&start_y_motion);
 
-  // -----------------------------------------------------------
-  // A1: Heartbeat sensor — acts like a potentiometer
-  // Maps the raw ADC range (400–800) to an amplitude of 0–5 mm.
-  // Controls how wide the X sine wave oscillates.
+   // -----------------------------------------------------------
+  // A1: Heartbeat sensor — reads a base amplitude value (0–5 mm)
+  // NOT directly mapped to amplitude — we multiply it by A2 in the loop
   // -----------------------------------------------------------
   analog_a1.set_floor(0, 400);
   analog_a1.set_ceiling(5, 800);
-  analog_a1.map(&x_wave_gen.amplitude);
   analog_a1.begin(IO_A1);
 
   // -----------------------------------------------------------
-  // A2: Slider — acts like a potentiometer
-  // Maps the raw ADC range (400–800) to a frequency of 0–20 Hz.
-  // Controls how fast the X sine wave oscillates.
+  // A2: Slider — reads a multiplier value (0.1–1.0)
+  // Scales A1's output so you can attenuate the heartbeat amplitude
   // -----------------------------------------------------------
-  analog_a2.set_floor(1, 400);
-  analog_a2.set_ceiling(10, 800);
-  analog_a2.map(&x_wave_gen.frequency);
+  analog_a2.set_floor(0.1, 400);
+  analog_a2.set_ceiling(1.0, 800);
   analog_a2.begin(IO_A2);
 
   // -- Position generator --
@@ -160,6 +156,11 @@ void start_y_motion() {
 
 void loop() {
   overhead_delay.periodic_call(&report_overhead, 100);
+
+  // Multiply heartbeat (A1) by slider (A2) to get final amplitude
+  float32_t heartbeat_val = analog_a1.read();
+  float32_t multiplier = analog_a2.read();
+  x_wave_gen.amplitude = heartbeat_val * multiplier;
 
   dance_loop();
 }
