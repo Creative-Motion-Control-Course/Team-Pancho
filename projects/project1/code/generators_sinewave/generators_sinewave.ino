@@ -121,8 +121,8 @@ void setup() {
   // Maps the raw ADC range (400–800) to a frequency of 0–20 Hz.
   // Controls how fast the X sine wave oscillates.
   // -----------------------------------------------------------
-  analog_a2.set_floor(0, 400);
-  analog_a2.set_ceiling(20, 800);
+  analog_a2.set_floor(1, 400);
+  analog_a2.set_ceiling(10, 800);
   analog_a2.map(&x_wave_gen.frequency);
   analog_a2.begin(IO_A2);
 
@@ -195,7 +195,7 @@ void report_overhead(){
 
 void y_motion() {
   // Moves the header to the end of the page
-  for (int i = 0; i < 1; i ++) {
+  for (int i = 0; i < 5; i ++) {
     queue_xy_target(current_line_x, 190);
     current_line_x += 10;
     queue_xy_target(current_line_x, 190);
