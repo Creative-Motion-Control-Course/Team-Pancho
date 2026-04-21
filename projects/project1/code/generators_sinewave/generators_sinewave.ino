@@ -41,7 +41,11 @@ AnalogInput analog_a2;  // Slider — controls X frequency (0–20 Hz)
 RPC rpc;
 
 // Storing the current position
-float64_t current_line_x = 25;
+float64_t current_line_x = 30;
+
+// begin check
+
+bool begin = false;
 
 // -- Time Based Interpolators for Pen XY --
 TimeBasedInterpolator time_based_interpolator;
@@ -79,7 +83,7 @@ void setup() {
   //-- X wave generator --
   x_wave_gen.setNoInput();
   x_wave_gen.frequency = 10.0;  // Hz
-  x_wave_gen.amplitude = 1.0; // mm
+  x_wave_gen.amplitude = 0; // mm
   x_wave_gen.output.map(&axidraw_kinematics.input_x);
   x_wave_gen.begin();
 
@@ -120,7 +124,7 @@ void setup() {
   // A2: Slider — reads a multiplier value (0.1–1.0)
   // Scales A1's output so you can attenuate the heartbeat amplitude
   // -----------------------------------------------------------
-  analog_a2.set_floor(0.1, 400);
+  analog_a2.set_floor(0, 400);
   analog_a2.set_ceiling(2.0, 800);
   analog_a2.begin(IO_A2);
 
@@ -152,6 +156,7 @@ void setup() {
 LoopDelay overhead_delay;
 
 void start_y_motion() {
+  begin = true;
   y_motion();
 }
 
@@ -159,9 +164,11 @@ void loop() {
   overhead_delay.periodic_call(&report_overhead, 100);
 
   // Multiply heartbeat (A1) by slider (A2) to get final amplitude
+  if (begin) { 
   float32_t heartbeat_val = analog_a1.read();
   float32_t multiplier = analog_a2.read();
   x_wave_gen.amplitude = heartbeat_val * multiplier;
+  }
 
   dance_loop();
 }
@@ -192,10 +199,12 @@ void queue_xy_target(float64_t x, float64_t y) {
 }
 
 void report_overhead(){
-  Serial.println("Positions (X, Y):");
+  Serial.println("Positions (X, Y, amplitude):");
   Serial.print(axidraw_kinematics.input_x.read(ABSOLUTE));
   Serial.print(",");
   Serial.print(axidraw_kinematics.input_y.read(ABSOLUTE));
+  Serial.print(",");
+  Serial.print(x_wave_gen.amplitude);
   Serial.print("\n");
 }
 
