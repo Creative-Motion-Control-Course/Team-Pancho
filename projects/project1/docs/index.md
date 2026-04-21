@@ -1,13 +1,14 @@
 ---
 layout: default
-title: "Project 1"
+title: “Vital Lines"
 ---
 
-# Project 1: [Your Project Title]
+# Project 1: [Vital Lines]
 
 ## Concept
 
 Vital Lines is a biometric drawing tool that uses a person's live heartbeat as its primary input. Our concept stems from the liveness dimension of the brief, neither the user nor the machine has full control over the resulting drawing. We took inspiration from “”, however instead of having an artist as an interpreter of the heartbeat we give it to a mechanical machine where the heart beat is what modifies its geometric design. Upon pressing a button, the machine draws in a zig zag motion across the y axis, with the horizontal amplitude of each line driven by the PulseSensor’s raw voltage signal.  Further, the operator can adjust the scale of the amplitude using a linear potentiometer.
+
 ## Design
 
 
@@ -28,10 +29,10 @@ We then thought about using markers but found that the output of the machine was
 
 We then tried watercolors and found that it was the medium that was perfect for the project. The delicate, fluid nature of watercolor allows the Axidraw to glide smoothly across the page, and the translucency of the marks allows for cleaner layered passes. The brush strokes also soften the mechanical precision of the plotter into something more intimate and organic. 
 
-![Water Color Example](/assets/project1/IMG_1322.jpeg])
+![Water Color Example](assets/project1/IMG_1322.jpeg)
 
-**Adding another layer of liveness
-**
+**Adding another layer of liveness**
+
 We knew that we needed another way for a user to modify the AxiDraw’s output as a heartbeat alone felt like something out of their control.
 
 At first we believed that using a potentiometer to control the x-wave frequency would be the best way for users to modify the output of their heartbeat. However during testing we found that the AxiDraw’s output felt unintuitive and random at times. 
@@ -40,7 +41,8 @@ From there we chose to instead create an amplitude sensor as well as a linear po
 
 
 Our iterations of different designs
-![All Iterations](Team-Pancho/projects/project1/docs/assets/project1/IMG_1323.jpeg)
+
+![All Iterations](assets/project1/IMG_1323.jpeg)
 
 ## Implementation
 
@@ -51,7 +53,9 @@ A sine wave generator drives the pen's horizontal (X axis) oscillation, producin
 
 Describe your hardware configuration.
 
-![Hardware setup photo](assets/placeholder.jpg)
+![Hardware setup photo]()
+
+![Hardware setup photo 2]()
 
 ### Code Overview
 
