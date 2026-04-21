@@ -29,7 +29,7 @@ We then thought about using markers but found that the output of the machine was
 
 We then tried watercolors and found that it was the medium that was perfect for the project. The delicate, fluid nature of watercolor allows the Axidraw to glide smoothly across the page, and the translucency of the marks allows for cleaner layered passes. The brush strokes also soften the mechanical precision of the plotter into something more intimate and organic. 
 
-![Water Color Example](1assets/project1/IMG_1322.jpeg)
+![Water Color Example](assets/project1/IMG_1322.jpeg)
 
 **Adding another layer of liveness**
 
@@ -53,9 +53,9 @@ A sine wave generator drives the pen's horizontal (X axis) oscillation, producin
 
 Describe your hardware configuration.
 
-![Hardware setup photo]()
+![Hardware setup photo](assets/project1/IMG_1338.png)
 
-![Hardware setup photo 2]()
+![Hardware setup photo 2](assets/project1/IMG_1339.png)
 
 ### Code Overview
 
@@ -92,7 +92,7 @@ void y_motion() {
 
 Show your project in action. Embed a video of it working:
 
-<iframe width="560" height="315" src="https://youtu.be/fSsLYvdi7ws" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/fSsLYvdi7ws" frameborder="0" allowfullscreen></iframe>
 
 <!--
 <video width="560" controls>
