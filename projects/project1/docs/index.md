@@ -19,16 +19,16 @@ To achieve this intentional design we knew that the medium that the AxiDraw was 
 
 We first started using oil pastels and a blending brush but found that the axidraw didn't have the necessary pressure for a good blend. 
 
-![Pastel Example](Team-Pancho/projects/project1/docs/assets/project1/IMG_1318.jpeg)
+![Pastel Example](assets/project1/IMG_1318.jpeg)
 
 We then thought about using markers but found that the output of the machine was too mechanical.
 
-![Marker Example](Team-Pancho/projects/project1/docs/assets/project1/IMG_1319.jpeg)
+![Marker Example](assets/project1/IMG_1319.jpeg)
 
 
 We then tried watercolors and found that it was the medium that was perfect for the project. The delicate, fluid nature of watercolor allows the Axidraw to glide smoothly across the page, and the translucency of the marks allows for cleaner layered passes. The brush strokes also soften the mechanical precision of the plotter into something more intimate and organic. 
 
-![Water Color Example](Team-Pancho/projects/project1/docs/assets/project1/IMG_1322.jpeg])
+![Water Color Example](/assets/project1/IMG_1322.jpeg])
 
 **Adding another layer of liveness
 **
@@ -40,7 +40,7 @@ From there we chose to instead create an amplitude sensor as well as a linear po
 
 
 Our iterations of different designs
-[!Team-Pancho/projects/project1/docs/assets/project1/IMG_1323.jpeg]
+![All Iterations](Team-Pancho/projects/project1/docs/assets/project1/IMG_1323.jpeg)
 
 ## Implementation
 
@@ -89,8 +89,6 @@ void y_motion() {
 Show your project in action. Embed a video of it working:
 
 <iframe width="560" height="315" src="https://youtu.be/fSsLYvdi7ws" frameborder="0" allowfullscreen></iframe>
-
-*Replace the iframe above with your actual video URL, or use a local video:*
 
 <!--
 <video width="560" controls>
