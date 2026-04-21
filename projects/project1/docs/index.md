@@ -19,16 +19,16 @@ To achieve this intentional design we knew that the medium that the AxiDraw was 
 
 We first started using oil pastels and a blending brush but found that the axidraw didn't have the necessary pressure for a good blend. 
 
-![Team-Pancho/projects/project1/docs/assets/project1/IMG_1318.jpeg]
+![Pastel Example](Team-Pancho/projects/project1/docs/assets/project1/IMG_1318.jpeg)
 
 We then thought about using markers but found that the output of the machine was too mechanical.
 
-[!Team-Pancho/projects/project1/docs/assets/project1/IMG_1319.jpeg]
+![Marker Example](Team-Pancho/projects/project1/docs/assets/project1/IMG_1319.jpeg)
 
 
-We then tried watercolors and found that it was the medium that was perfect for the project. The delicate, fluid nature of watercolor allows the Axidraw to glide smoothly across the page, and the translucency of the marks allows for cleaner layered passes. The brush strokes also soften the mechanical precision of the plotter into something more intimate and organic. [ADD FIGURE]
+We then tried watercolors and found that it was the medium that was perfect for the project. The delicate, fluid nature of watercolor allows the Axidraw to glide smoothly across the page, and the translucency of the marks allows for cleaner layered passes. The brush strokes also soften the mechanical precision of the plotter into something more intimate and organic. 
 
-[!Team-Pancho/projects/project1/docs/assets/project1/IMG_1322.jpeg]
+![Water Color Example](Team-Pancho/projects/project1/docs/assets/project1/IMG_1322.jpeg])
 
 **Adding another layer of liveness
 **
@@ -58,14 +58,37 @@ Describe your hardware configuration.
 Highlight key parts of your code and explain your approach:
 
 ```cpp
-// Paste and explain relevant code snippets here
+void y_motion() {
+  // Moves the header to give more spacing
+  queue_xy_target(current_line_x, 10);
+  //Creates the zig-zag pattern
+  for (int i = 0; i < 10; i++) {
+    queue_xy_target(current_line_x, 190);
+    current_line_x += 10;
+    queue_xy_target(current_line_x, 190);
+    queue_xy_target(current_line_x, 10);
+    current_line_x += 10;
+    queue_xy_target(current_line_x, 10);
+  }
+}
+```
+
+```cpp
+  // Multiplys heartbeat (A1) by slider (A2) to get final amplitude
+  // Makes it so the amplitude only changes when button is pushed
+  if (begin) { 
+  float32_t heartbeat_val = analog_a1.read();
+  float32_t multiplier = analog_a2.read();
+  x_wave_gen.amplitude = heartbeat_val * multiplier;
+  }
+
 ```
 
 ## Results
 
 Show your project in action. Embed a video of it working:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/fSsLYvdi7ws" frameborder="0" allowfullscreen></iframe>
 
 *Replace the iframe above with your actual video URL, or use a local video:*
 
