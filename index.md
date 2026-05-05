@@ -31,8 +31,10 @@ title: Home
 
 | Project | Description |
 |---------|-------------|
-| [Project 1 Proposal](projects/project1/docs/proposal.md) | *** |
+| [Project 1 Proposal](projects/project1/docs/proposal.md) |
 | [Project 1 - Vital Lines](projects/project1/docs/index.md) | Plotting sinewaves with live PulseRate data |
+| [Project 2](projects/project2/docs/proposal.md) |
+
 
 <!-- Add rows as you complete more projects:
 | [Project 2](projects/project2/docs/) | *Brief description of project 2* |
