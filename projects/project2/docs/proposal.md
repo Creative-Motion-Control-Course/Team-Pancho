@@ -28,11 +28,15 @@ The workflow we envision is as follows: once the artifact has been bisque fired,
 
 We envision utilizing StepDance to develop this interaction with four parameters:
 
-Dot Frequency: a wave generator sets how often the applicator fires per rotation and controls the density of the pattern
-Flow Rate: a syringe extruder controls glaze which can be tuned
-Wheel Speed: rpm of rotating wheelhead →ideally this is synced to dot frequency 
-Brush vector: position of applicator head, set height and distance from ceramic surface
-Design spacing: an encoder controls the angle of brush vector'
+- Dot Frequency: a wave generator sets how often the applicator fires per rotation and controls the density of the pattern
+
+- Flow Rate: a syringe extruder controls glaze which can be tuned
+
+- Wheel Speed: rpm of rotating wheelhead →ideally this is synced to dot frequency 
+
+- Brush vector: position of applicator head, set height and distance from ceramic surface
+
+- Design spacing: an encoder controls the angle of brush vector'
 
 Our envisioned example would be the following:
 A person who wants to create a dotted design on a simple cylindrical bisqueared piece would center the object on the wheelhead. Fill the glaze applicator with the appropriate viscosity of glaze. Hone the brush head to the ceramic piece. Make sure that the frequency of the wave and the speed of the wheel is appropriate for said frequency. And then a rate of flow of the glaze to the ceramic piece.
