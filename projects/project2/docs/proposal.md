@@ -7,6 +7,10 @@ title: "Project 2 Proposal"
 The final artifacts we are aiming for are highly geometric designs on glazed pieces. We plan to accomplish this goal by modifying an Ender 3D printer and creating custom hardware that uses polar coordinates to produce these highly geometric glaze designs. Our goal is to help ceramists experiment with and reproduce these labor-intensive designs.
 
 ![Inspiration](assets/exampleglaze.png)
+![Inspiration](assets/IMG_1374.png)
+![Inspiration](assets/IMG_1373.png)
+![Inspiration](assets/IMG_1377.png)
+
 
 Our inspiration for these geometric designs comes from techniques such as slip dotting and stencil design, where ceramists have to dedicate long hours to achieve precise, geometric results.
 
