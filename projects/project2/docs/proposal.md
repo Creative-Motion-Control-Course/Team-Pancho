@@ -17,8 +17,10 @@ The processes that this tool extends are: slip dotting, repetition, geometry, ra
 ## Technical Development
 Our objective falls under Method B: modifying an existing machine. We plan on adding a motorized rotating wheelhead axis to a modified Ender 3D printer. We plan to use polar coordinates rather than Cartesian coordinates because we believe that this coordinate system best suits our goal. Another reason we plan to use a rotating wheelhead is that it makes it easier for practitioners to map how their work can be applied on this machine.
 
+
 The following is a reference for how we plan to modify the Ender 3D printer.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VEgwnhLHy3g?si=kPUBWL1E8rJZJyKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 The workflow we envision is as follows: once the artifact has been bisque fired, the ceramist would center the piece on the wheelhead. They would then prepare the machine by zeroing the axes, testing the viscosity of the slip glaze, and loading the glaze into the toolhead. Next, they would hone the flow rate of the machine using a potentiometer so that an appropriate amount of glaze is dispensed. The artist would then specify the pattern by using a potentiometer to set the spacing of the design. They would use encoders to fine-tune the height and depth of the toolhead relative to the piece. They would also use a slider to control the speed at which the wheelhead rotates. We believe that this workflow allows for the most control, so that a person can reasonably glaze a variety of bisque ware shapes with different materials and sizes.
 
@@ -61,5 +63,7 @@ Kiln
 ## Questions
 
 Glaze pressure & non-Newtonian behavior: navigating consistent dot size requires careful syringe pressure calibration 
+
 Usability issues; setting the applicator to start, defining patterns, limits, should all be easy to navigate and avoid CAD-CAM-CNC workflow.
+
 What would be a good formula to create the right viscosity and proportion of slip to glaze to make a geometric design with our machine?
