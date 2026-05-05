@@ -41,13 +41,21 @@ A person who wants to create a dotted design on a simple cylindrical bisqueared 
 We envision that the following would be the components that we would need to create the machine and artifacts
 
 DC Motor
+
 Belt for DC Motor
+
 Wheelhead
+
 Ender 3D Printer
+
 Servo Motor
+
 Screwhead delivery system with a syringe
+
 Ceramic pieces
+
 Slip and Glaze
+
 Kiln
 
 ## Questions
