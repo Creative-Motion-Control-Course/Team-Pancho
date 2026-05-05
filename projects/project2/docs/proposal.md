@@ -26,7 +26,7 @@ The workflow we envision is as follows: once the artifact has been bisque fired,
 
 ## Software
 
-We envision utilizing StepDance to develop this interaction with four parameters:
+We envision utilizing StepDance to develop this interaction with the following parameters:
 
 - Dot Frequency: a wave generator sets how often the applicator fires per rotation and controls the density of the pattern
 
