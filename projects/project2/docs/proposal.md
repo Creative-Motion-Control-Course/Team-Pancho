@@ -44,6 +44,13 @@ The following is how we envision the machine
 
 ![Inspiration](assets/ourmachine.png)
 
+Our project timeline would be 
+
+1. Testing glaze formula and extrusion
+2. Attaching syringe toolhead to Ender
+3. Testing on flat ceramic tiles
+4. Testing on tapered ceramic pieces
+
 
 ## Software
 
@@ -73,6 +80,8 @@ We envision that the following would be the components that we would need to cre
 - Slip and Glaze
 
 - Kiln
+
+- Stepper Motor
 
 ## Questions
 
