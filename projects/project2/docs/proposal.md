@@ -3,7 +3,9 @@ layout: default
 title: "Project 2 Proposal"
 ---
 # Project 2 Proposal: Geometric Glaze Application for Ceramics
+
 ## Creative Domain
+
 The final artifacts we are aiming for are highly geometric designs on glazed pieces. We plan to accomplish this goal by modifying an Ender 3D printer and creating custom hardware that uses polar coordinates to produce these highly geometric glaze designs. Our goal is to help ceramists experiment with and reproduce these labor-intensive designs.
 
 ![Inspiration](assets/exampleglaze.png)
@@ -12,14 +14,23 @@ The final artifacts we are aiming for are highly geometric designs on glazed pie
 ![Inspiration](assets/IMG_1377.png)
 
 
-Our inspiration for these geometric designs comes from techniques such as slip dotting and stencil design, where ceramists have to dedicate long hours to achieve precise, geometric results.
+Our inspiration for these geometric designs comes from techniques such as slip dotting and stencil design, where ceramists have to dedicate long hours to achieve precise, geometric results. We envision that ceramists would use this tool after they have already designed their bisqueware piece. The skills preserved in creating these artifacts would be: 
 
-We envision that ceramists would use this tool after they have already designed their bisque ware piece. The skills preserved in creating these artifacts would be: centering the object on a throwing bat, creating the shape in ceramics, trimming the shape, firing, and general glazing techniques. It is assumed that the user knows how to dip the piece in transparent glaze afterwards.
+- centering the object on a throwing bat
+- creating the shape in ceramics
+- trimming the shape
+- firing and basic glazing techniques
 
-The processes that this tool extends are: slip dotting, repetition, geometry, radial symmetry, high-frequency mark-making, and large-scale production.
+The processes that this tool extends are: 
+
+- slip dotting
+- repetition
+- geometry
+- radial symmetry
+- large-scale production
 
 ## Technical Development
-Our objective falls under Method B: modifying an existing machine. We plan on adding a motorized rotating wheelhead axis to a modified Ender 3D printer. We plan to use polar coordinates rather than Cartesian coordinates because we believe that this coordinate system best suits our goal. Another reason we plan to use a rotating wheelhead is that it makes it easier for practitioners to map how their work can be applied on this machine.
+Our objective falls under **Method B: modifying an existing machine**. We plan on adding a motorized rotating wheelhead axis to a modified Ender 3D printer. We plan to use polar coordinates rather than Cartesian coordinates because we believe that this coordinate system best suits our goal. Another reason we plan to use a rotating wheelhead is that it makes it easier for practitioners to map how their work can be applied on this machine.
 
 
 The following is a reference for how we plan to modify the Ender 3D printer.
@@ -32,15 +43,15 @@ The workflow we envision is as follows: once the artifact has been bisque fired,
 
 We envision utilizing StepDance to develop this interaction with the following parameters:
 
-- Dot Frequency: a wave generator sets how often the applicator fires per rotation and controls the density of the pattern
+- **Dot Frequency**: a wave generator sets how often the applicator fires per rotation and controls the density of the pattern
 
-- Flow Rate: a syringe extruder controls glaze which can be tuned
+- **Flow Rate**: a syringe extruder controls glaze which can be tuned
 
-- Wheel Speed: rpm of rotating wheelhead →ideally this is synced to dot frequency 
+- **Wheel Speed**: rpm of rotating wheelhead →ideally this is synced to dot frequency 
 
-- Brush vector: position of applicator head, set height and distance from ceramic surface
+- **Brush vector**: position of applicator head, set height and distance from ceramic surface
 
-- Design spacing: an encoder controls the angle of brush vector'
+- **Design spacing**: an encoder controls the angle of brush vector'
 
 Our envisioned example would be the following:
 A person who wants to create a dotted design on a simple cylindrical bisqueared piece would center the object on the wheelhead. Fill the glaze applicator with the appropriate viscosity of glaze. Hone the brush head to the ceramic piece. Make sure that the frequency of the wave and the speed of the wheel is appropriate for said frequency. And then a rate of flow of the glaze to the ceramic piece.
@@ -50,23 +61,23 @@ A person who wants to create a dotted design on a simple cylindrical bisqueared 
 
 We envision that the following would be the components that we would need to create the machine and artifacts
 
-DC Motor
+- DC Motor
 
-Belt for DC Motor
+- Belt for DC Motor
 
-Wheelhead
+- Wheelhead
 
-Ender 3D Printer
+- Ender 3D Printer
 
-Servo Motor
+- Servo Motor
 
-Screwhead delivery system with a syringe
+- Screwhead delivery system with a syringe
 
-Ceramic pieces
+- Ceramic pieces
 
-Slip and Glaze
+- Slip and Glaze
 
-Kiln
+- Kiln
 
 ## Questions
 
