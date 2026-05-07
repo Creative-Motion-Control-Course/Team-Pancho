@@ -30,6 +30,7 @@ The processes that this tool extends are:
 - large-scale production
 
 ## Technical Development
+
 Our objective falls under **Method B: modifying an existing machine**. We plan on adding a motorized rotating wheelhead axis to a modified Ender 3D printer. We plan to use polar coordinates rather than Cartesian coordinates because we believe that this coordinate system best suits our goal. Another reason we plan to use a rotating wheelhead is that it makes it easier for practitioners to map how their work can be applied on this machine.
 
 
