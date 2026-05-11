@@ -33,7 +33,7 @@ title: Home
 |---------|-------------|
 | [Project 1 Proposal](projects/project1/docs/proposal.md) |
 | [Project 1 - Vital Lines](projects/project1/docs/index.md) | Plotting sinewaves with live PulseRate data |
-| [Project 2](projects/project2/docs/proposal.md) |
+| [Project 2 Proposal](projects/project2/docs/proposal.md) | Drip Glazing Machine for Bisqueware |
 
 
 <!-- Add rows as you complete more projects:
