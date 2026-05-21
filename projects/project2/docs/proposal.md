@@ -92,3 +92,27 @@ Usability issues; setting the applicator to start, defining patterns, limits
 Creating the toolhead for application
 
 Centering the ceramic piece onto the ender’s bed
+
+|-------------|
+
+## Status Update - May 21 2026:
+
+**Completed**
+Step 1. Glaze Formula & Extrusion Testing
+We tested and validated the glaze slip formula, confirming a viscosity suitable for syringe-based extrusion
+
+Syringe Toolhead Design & Fabrication
+We designed a custom syringe extrusion mechanism in Fusion 360, fully fabricated and assembled the tool. This component mounts to the Ender and controls glaze dispensing.
+
+**In Progress**
+
+Step 2. Mounting Toolhead to Ender
+The syringe toolhead needs to be mounted to the Ender 3D printer. The assembly should be mechanically stable and positioned correctly relative to the print bed for ceramic surface application.
+
+Step 3. Programming Geometric Patterns
+We are currently developing the software to drive the Ender in geometric glaze patterns. Our approach uses a circle wave generator to produce radially symmetric dot patterns, translating wave frequency parameters into coordinated XY and extrusion motion. 
+
+**Next Steps**
+- Testing the programmed patterns on flat ceramic tiles
+- Iterating on pattern density and flow rate based on tile results
+- Moving to tapered bisqueware pieces once flat-tile tests are stable
