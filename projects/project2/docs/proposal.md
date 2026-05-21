@@ -93,11 +93,11 @@ Creating the toolhead for application
 
 Centering the ceramic piece onto the ender’s bed
 
-|-------------|
 
 ## Status Update - May 21 2026:
 
 **Completed**
+
 Step 1. Glaze Formula & Extrusion Testing
 We tested and validated the glaze slip formula, confirming a viscosity suitable for syringe-based extrusion
 
