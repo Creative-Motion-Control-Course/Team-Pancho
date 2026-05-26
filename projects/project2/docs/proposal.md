@@ -99,6 +99,7 @@ Centering the ceramic piece onto the ender’s bed
 **Completed**
 
 Step 1. Glaze Formula & Extrusion Testing
+
 We tested and validated the glaze slip formula, confirming a viscosity suitable for syringe-based extrusion
 
 ![Progress](assets/IMG_1435.jpeg)
@@ -111,15 +112,27 @@ We designed a custom syringe extrusion mechanism in Fusion 360, fully fabricated
 **In Progress**
 
 Step 2. Mounting Toolhead to Ender
+
 The syringe toolhead needs to be mounted to the Ender 3D printer. The assembly should be mechanically stable and positioned correctly relative to the print bed for ceramic surface application.
 
 ![Inspiration](assets/v1cad.png)
 ![Inspiration](assets/v2extruder.png)
 
 Step 3. Programming Geometric Patterns
+
 We are currently developing the software to drive the Ender in geometric glaze patterns. Our approach uses a circle wave generator to produce radially symmetric dot patterns, translating wave frequency parameters into coordinated XY and extrusion motion. 
 
 **Next Steps**
 - Testing the programmed patterns on flat ceramic tiles
 - Iterating on pattern density and flow rate based on tile results
 - Moving to tapered bisqueware pieces once flat-tile tests are stable
+
+
+## Peer Feedback
+
+- Focus on the circle generator and add user inputs after that
+- Linear slider for the rate of slip extrusion
+- Using time-based interpolator to let users start/stop the slip extrusion, involves calibrating and setting limits
+- Consider a serial monitor for user interaction
+
+
