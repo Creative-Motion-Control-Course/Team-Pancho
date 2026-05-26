@@ -128,11 +128,11 @@ We are currently developing the software to drive the Ender in geometric glaze p
 - Moving to tapered bisqueware pieces once flat-tile tests are stable
 
 
-## Peer Feedback
+## Peer Review Feedback - May 26, 2026
 
 - Focus on the circle generator and add user inputs after that
 - Linear slider for the rate of slip extrusion
 - Using time-based interpolator to let users start/stop the slip extrusion, involves calibrating and setting limits
-- Consider a serial monitor for user interaction
+- Consider using a serial monitor for user interaction
 
 
