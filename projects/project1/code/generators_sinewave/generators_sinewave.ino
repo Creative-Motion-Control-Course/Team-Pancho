@@ -31,7 +31,9 @@ VelocityGenerator vertical_velocity_gen;
 
 // -- Position Generator + Button (pen up/down) --
 PositionGenerator position_gen;
+
 Button button_d1;
+Button button_d2;
 
 // -- Analog Inputs --
 AnalogInput analog_a1;  // Heartbeat sensor — controls X amplitude (acts like a pot)
@@ -46,6 +48,8 @@ float64_t current_line_x = 30;
 // begin check
 
 bool begin = false;
+
+float64_t penUp = 4;
 
 // -- Time Based Interpolators for Pen XY --
 TimeBasedInterpolator time_based_interpolator;
@@ -112,6 +116,14 @@ void setup() {
   button_d1.set_mode(BUTTON_MODE_TOGGLE);
   button_d1.set_callback_on_press(&start_y_motion);
 
+// -----------------------------------------------------------
+  // Button D2: Triggers  when pressed.
+  // No longer controls pen up/down — it starts the Y zigzag path.
+  // -----------------------------------------------------------
+  button_d2.begin(IO_D2, INPUT_PULLDOWN);
+  button_d2.set_mode(BUTTON_MODE_TOGGLE);
+  button_d2.set_callback_on_press(&reset_motion);
+
    // -----------------------------------------------------------
   // A1: Heartbeat sensor — reads a base amplitude value (0–5 mm)
   // NOT directly mapped to amplitude — we multiply it by A2 in the loop
@@ -159,6 +171,30 @@ void start_y_motion() {
   begin = true;
   y_motion();
 }
+
+void reset_motion() {
+  Serial.println("resetting");
+  begin = false;
+  current_line_x = 30;
+  x_wave_gen.amplitude = 0;
+
+  // Flush queued moves immediately
+  time_based_interpolator.reset_block_queue();
+
+  // Lift pen, return to home, lower pen
+  time_based_interpolator.add_move(INCREMENTAL, 50.0, 0, 0, penUp, 0, 0, 0);   // pen up
+  time_based_interpolator.add_move(GLOBAL, 50.0, 30, 0, penUp, 0, 0, 0);        // move to home XY
+  time_based_interpolator.add_move(INCREMENTAL, 50.0, 0, 0, -penUp, 0, 0, 0);  // pen down
+}
+
+// void toggle_motion() {
+//   if (begin) {
+//     reset_motion();
+//   } else {
+//     begin = true;
+//     y_motion();
+//   }
+// }
 
 void loop() {
   overhead_delay.periodic_call(&report_overhead, 100);
@@ -210,6 +246,9 @@ void report_overhead(){
 
 void y_motion() {
   // Moves the header to the end of the page
+  // Go to 0, 0, pen_up
+  // Go to current_line_x, 10, pen_up
+  // Go to current_line_x, 10, pen_down
   queue_xy_target(current_line_x, 10);
   for (int i = 0; i < 10; i++) {
     queue_xy_target(current_line_x, 190);
