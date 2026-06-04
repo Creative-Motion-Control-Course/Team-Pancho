@@ -43,7 +43,7 @@ AnalogInput analog_a2;  // Slider — controls X frequency (0–20 Hz)
 RPC rpc;
 
 // Storing the current position
-float64_t current_line_x = 30;
+float64_t current_line_x = 80;
 
 // begin check
 
@@ -60,7 +60,7 @@ void pen_up();
 void set_x_amplitude(float32_t amplitude);
 void set_x_frequency(float32_t frequency);
 void set_z_amplitude(float32_t amplitude);
-void queue_xy_target(float64_t x, float64_t y);
+//void queue_xy_target(float64_t x, float64_t y);
 void report_overhead();
 void y_motion();
 
@@ -91,11 +91,6 @@ void setup() {
   x_wave_gen.output.map(&axidraw_kinematics.input_x);
   x_wave_gen.begin();
 
-  /* -- Y velocity generator --
-  vertical_velocity_gen.begin();
-  vertical_velocity_gen.speed_units_per_sec = 2.0; // mm/s
-  vertical_velocity_gen.output.map(&axidraw_kinematics.input_y);
-*/
   // -- Z wave generator --
   z_wave_gen.setNoInput();
   z_wave_gen.frequency = 10.0;
@@ -110,15 +105,13 @@ void setup() {
 
  // -----------------------------------------------------------
   // Button D1: Triggers y_motion() when pressed.
-  // No longer controls pen up/down — it starts the Y zigzag path.
   // -----------------------------------------------------------
   button_d1.begin(IO_D1, INPUT_PULLDOWN);
   button_d1.set_mode(BUTTON_MODE_TOGGLE);
   button_d1.set_callback_on_press(&start_y_motion);
 
 // -----------------------------------------------------------
-  // Button D2: Triggers  when pressed.
-  // No longer controls pen up/down — it starts the Y zigzag path.
+  // Button D2: Resets position back to origin
   // -----------------------------------------------------------
   button_d2.begin(IO_D2, INPUT_PULLDOWN);
   button_d2.set_mode(BUTTON_MODE_TOGGLE);
@@ -136,8 +129,8 @@ void setup() {
   // A2: Slider — reads a multiplier value (0.1–1.0)
   // Scales A1's output so you can attenuate the heartbeat amplitude
   // -----------------------------------------------------------
-  analog_a2.set_floor(0, 400);
-  analog_a2.set_ceiling(2.0, 800);
+  analog_a2.set_floor(0, 0);
+  analog_a2.set_ceiling(2.0, 1000);
   analog_a2.begin(IO_A2);
 
   // -- Position generator --
@@ -159,7 +152,7 @@ void setup() {
 
   // {"name": "queue_xy_target", "args": [6, 5]}
   // args are: absolute X, absolute Y
-  rpc.enroll("queue_xy_target", queue_xy_target);
+  // rpc.enroll("queue_xy_target", queue_xy_target);
 
   dance_start();
 
@@ -175,26 +168,16 @@ void start_y_motion() {
 void reset_motion() {
   Serial.println("resetting");
   begin = false;
-  current_line_x = 30;
-  x_wave_gen.amplitude = 0;
 
   // Flush queued moves immediately
   time_based_interpolator.reset_block_queue();
 
   // Lift pen, return to home, lower pen
   time_based_interpolator.add_move(INCREMENTAL, 50.0, 0, 0, penUp, 0, 0, 0);   // pen up
-  time_based_interpolator.add_move(GLOBAL, 50.0, 30, 0, penUp, 0, 0, 0);        // move to home XY
-  time_based_interpolator.add_move(INCREMENTAL, 50.0, 0, 0, -penUp, 0, 0, 0);  // pen down
+  time_based_interpolator.add_move(GLOBAL, 50.0, 0,0, penUp, 0, 0, 0);        // move to home XY
+  // time_based_interpolator.add_move(INCREMENTAL, 50.0, 0, 0, -penUp, 0, 0, 0);  // pen down
+  x_wave_gen.amplitude = 0;
 }
-
-// void toggle_motion() {
-//   if (begin) {
-//     reset_motion();
-//   } else {
-//     begin = true;
-//     y_motion();
-//   }
-// }
 
 void loop() {
   overhead_delay.periodic_call(&report_overhead, 100);
@@ -229,10 +212,10 @@ void set_z_amplitude(float32_t amplitude) {
   z_wave_gen.amplitude = amplitude;
 }
 
-void queue_xy_target(float64_t x, float64_t y) {
-  // TODO: adjust this to match your stepdance API
-  time_based_interpolator.add_move(GLOBAL, 15.0, x, y, 0,0,0,0);
-}
+// void queue_xy_target(float64_t x, float64_t y) {
+//   // TODO: adjust this to match your stepdance API
+//   time_based_interpolator.add_move(GLOBAL, 15.0, x, y, 0,0,0,0);
+// }
 
 void report_overhead(){
   Serial.println("Positions (X, Y, amplitude):");
@@ -242,20 +225,31 @@ void report_overhead(){
   Serial.print(",");
   Serial.print(x_wave_gen.amplitude);
   Serial.print("\n");
+  // Serial.println(analog_a1.read());
 }
 
 void y_motion() {
-  // Moves the header to the end of the page
-  // Go to 0, 0, pen_up
-  // Go to current_line_x, 10, pen_up
-  // Go to current_line_x, 10, pen_down
-  queue_xy_target(current_line_x, 10);
-  for (int i = 0; i < 10; i++) {
-    queue_xy_target(current_line_x, 190);
+  current_line_x = 80;
+
+  time_based_interpolator.add_move(GLOBAL, 15.0, 0,0, penUp,0,0,0);
+  time_based_interpolator.add_move(GLOBAL, 15.0, current_line_x, 40, penUp,0,0,0);
+  time_based_interpolator.add_move(GLOBAL, 15.0, current_line_x, 40, -penUp,0,0,0);
+
+  for (int i = 0; i < 6; i++) {
+    time_based_interpolator.add_move(GLOBAL, 15.0, current_line_x, 145, -penUp,0,0,0);
     current_line_x += 10;
-    queue_xy_target(current_line_x, 190);
-    queue_xy_target(current_line_x, 10);
+    time_based_interpolator.add_move(GLOBAL, 15.0, current_line_x, 145, -penUp,0,0,0);
+    time_based_interpolator.add_move(GLOBAL, 15.0, current_line_x, 40, -penUp,0,0,0);
     current_line_x += 10;
-    queue_xy_target(current_line_x, 10);
+    time_based_interpolator.add_move(GLOBAL, 15.0, current_line_x, 40, -penUp,0,0,0);
   }
+  // queue_xy_target(current_line_x, 40);     changed to time-based interpolator to account for penUP/-penUP
+  // for (int i = 0; i < 10; i++) {
+  //   queue_xy_target(current_line_x, 145);
+  //   current_line_x += 10;
+  //   queue_xy_target(current_line_x, 145);
+  //   queue_xy_target(current_line_x, 40);
+  //   current_line_x += 10;
+  //   queue_xy_target(current_line_x, 40);
+  // }
 }
