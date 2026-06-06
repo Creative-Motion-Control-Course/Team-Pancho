@@ -26,6 +26,7 @@ ScalingFilter1D drip_filter;
 const float64_t dripRate = 5.0;
 
 Button button_d1; // start button
+Button button_d2; // fix extruder position
 
 AnalogInput analog_a1; // potentiometer for driprate
 
@@ -48,7 +49,7 @@ void setup() {
   // Allows the inputs and outputs to talk with the board
   enable_drivers();
 
-  //Mapping the outputs
+  // Mapping the outputs
   channel_a.begin(&output_a, SIGNAL_E);
   channel_a.set_ratio(1, 40);
   channel_a.invert_output();
@@ -85,7 +86,12 @@ void setup() {
   button_d1.set_mode(BUTTON_MODE_STANDARD);
   button_d1.set_callback_on_press(&zeroingAxis);
 
-  //Initializes the velocity_gen function
+  // Fix extruder position
+  button_d2.begin(IO_D2, INPUT_PULLDOWN);
+  button_d2.set_mode(BUTTON_MODE_STANDARD);
+  button_d2.set_callback_on_press(&resetExtruder);
+
+  // Initializes the velocity_gen function
   velocity_gen.begin();
 
   // Controls the speed of the the angle 
@@ -114,8 +120,8 @@ void setup() {
   rpc.begin(); 
   rpc.enroll("hello", hello_serial);
 
-  // Call example: {"name": "test_move", "args": [-100]}
-  rpc.enroll("test_move", test_move);
+  // Call example: {"name": "tuneExtruder", "args": [1]}
+  rpc.enroll("tuneExtruder", tuneExtruder);
 
   // Initialize time-based interpolator for time-dependent events
   time_based_interpolator.begin();
@@ -154,9 +160,15 @@ void hello_serial(){
 }
 
 // RPC calls this function
-void test_move(float32_t val){
+void tuneExtruder(float32_t val){
   Serial.print("push!");
   position_gen.go(val, INCREMENTAL, 10);
+}
+
+// Button D2 callback: fix extruder position (-50)
+void resetExtruder() {
+  Serial.println("Fixing extruder position (-50)");
+  position_gen.go(-50, INCREMENTAL, 10);
 }
 
 // Reports back how fast the circle in the angle direction is being drawn 
@@ -171,7 +183,7 @@ void zeroingAxis() {
   // time_based_interpolator.begin();
   time_based_interpolator.add_move(GLOBAL, 30.0, -214.49, -384.41,0,0,0,0);
 
-  //Serial.println("Finishing Zeroing Y and X Axis");
+  // Serial.println("Finishing Zeroing Y and X Axis");
 
   // Serial.println(channel_a.input_target_position.read(ABSOLUTE));
 
