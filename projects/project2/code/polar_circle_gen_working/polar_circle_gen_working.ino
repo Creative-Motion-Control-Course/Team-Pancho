@@ -17,6 +17,7 @@ Channel channel_e; // extruder
 KinematicsPolarToCartesian polar_kinematics;
 PositionGenerator position_gen; 
 VelocityGenerator velocity_gen;
+VelocityGenerator extrusion_gen;
 TimeBasedInterpolator time_based_interpolator;
 
 Encoder encoder_1; // RADIUS
@@ -26,14 +27,15 @@ ScalingFilter1D drip_filter;
 const float64_t dripRate = 5.0;
 
 Button button_d1; // start button
-Button button_d2; // fix extruder position
+Button button_d2; // fix extruder position (+)
 
 AnalogInput analog_a1; // potentiometer for driprate
+AnalogInput analog_a2; // potentiometer for fix extruder position (-)
 
 RPC rpc; // remote procedure call
 
 // const float64_t FIXED_RADIUS = 20.0; 
-float64_t currentSpeed = 4.0;        // tune via serial
+float64_t currentSpeed = 1.0;        // tune via serial
 
 
 void setup() {
@@ -81,6 +83,12 @@ void setup() {
   analog_a1.set_ceiling(3, 1020);
   analog_a1.begin(IO_A1);
 
+  // potentiometer to move upper platform down, value is sent to ()
+  analog_a2.set_floor(0, 25);
+  analog_a2.set_ceiling(3, 1020);
+  analog_a2.begin(IO_A2);
+  
+
   // Zero-ing XY axis
   button_d1.begin(IO_D1, INPUT_PULLDOWN);
   button_d1.set_mode(BUTTON_MODE_STANDARD);
@@ -89,7 +97,7 @@ void setup() {
   // Fix extruder position
   button_d2.begin(IO_D2, INPUT_PULLDOWN);
   button_d2.set_mode(BUTTON_MODE_STANDARD);
-  button_d2.set_callback_on_press(&resetExtruder);
+  button_d2.set_callback_on_press(&raiseExtruder);
 
   // Initializes the velocity_gen function
   velocity_gen.begin();
@@ -97,6 +105,13 @@ void setup() {
   // Controls the speed of the the angle 
   velocity_gen.speed_units_per_sec = currentSpeed;
   velocity_gen.output.map(&polar_kinematics.input_angle);
+
+  // Initializes the extrusion_gen function
+  extrusion_gen.begin();
+  // Control the speed of the downward velocity of the extruder
+  extrusion_gen.speed_units_per_sec = 0.0;
+  extrusion_gen.output.map(&channel_e.input_target_position);
+
 
   // extruder
   encoder_1.begin(ENCODER_1);
@@ -108,7 +123,6 @@ void setup() {
   encoder_2.begin(ENCODER_2);
   encoder_2.set_ratio(2, 2400);
   encoder_2.output.map(&channel_z.input_target_position);
-  encoder_2.invert();
 
   // Initializes polar_kinematics
   // Translates from polar coordinates to cartesian coordinates
@@ -138,17 +152,20 @@ LoopDelay overhead_delay;
 void loop() {
   //overhead_delay.periodic_call(&report_overhead, 500);
 
-  if (Serial.available()) { 
-    float newSpeed = Serial.parseFloat();
-    if (newSpeed > 0) {
-      currentSpeed = newSpeed;
-      velocity_gen.speed_units_per_sec = currentSpeed;
-    }
-  }
+  // if (Serial.available()) { 
+  //   float newSpeed = Serial.parseFloat();
+  //   if (newSpeed > 0) {
+  //     currentSpeed = newSpeed;
+  //     velocity_gen.speed_units_per_sec = currentSpeed;
+  //   }
+  // }
 
   // user-adjustable extrusion rate
   float64_t dripMultiplier = analog_a1.read();
   drip_filter.set_ratio(dripRate*dripMultiplier,TWO_PI);
+
+  float64_t speedExtrusion = analog_a2.read();
+  extrusion_gen.speed_units_per_sec = speedExtrusion;
 
   // Loops the program, runs until power-off
   dance_loop();
@@ -166,8 +183,8 @@ void tuneExtruder(float32_t val){
 }
 
 // Button D2 callback: fix extruder position (-50)
-void resetExtruder() {
-  Serial.println("Fixing extruder position (-50)");
+void raiseExtruder() {
+  Serial.println("Fixing extruder position (+)");
   position_gen.go(-50, INCREMENTAL, 10);
 }
 
@@ -177,6 +194,7 @@ void report_overhead() {
   // Serial.println(currentSpeed);
   // zeroingAxis();
 }
+
 
 void zeroingAxis() {
   Serial.println("Zeroing Y and X Axis");
