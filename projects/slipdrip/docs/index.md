@@ -61,12 +61,45 @@ Skipping over assembly, fitting, and other minor issues, we were able to get our
 
 ## Software Design
 
-1. Polar Kinematics Example
-2. Linking Everything Together
-3. Circle Generation
-4. New Interfacing
-5. Scaling and Filtering
-6. More Interfacing
+The software is built on Stepdance, a custom embedded library developed in this course. Rather than requiring coordinate input or code-level configuration, the system keeps all interaction physical — potentiometers, encoders, and buttons. Under the hood, motion is calculated in polar coordinates and converted to Cartesian internally, mapping onto the geometry of wheel-thrown artifacts. 
+
+```cpp
+KinematicsPolarToCartesian polar_kinematics;
+polar_kinematics.output_x.map(&channel_a.input_target_position);
+polar_kinematics.output_y.map(&channel_b.input_target_position);
+```
+
+This is the conceptual heart of the machine. Rather than commanding XY positions directly, the system processes polar coordinates (angle + radius) and converts to Cartesian internally. 
+
+
+```cpp
+button_d1.set_callback_on_press(&zeroingAxis);
+time_based_interpolator.add_move(GLOBAL, 30.0, -214.49, -384.41,0,0,0,0);
+```
+
+One button press zeros the XY axis and moves to a known home position that is aligned with our physical extrude mechanism.
+
+```cpp
+drip_filter.set_ratio(dripRate, TWO_PI);
+drip_filter.input.map(&polar_kinematics.input_angle);
+drip_filter.output.map(&channel_e.input_target_position);
+```
+
+The glaze extrusion is coupled to the angle of rotation. This means dots are placed based on where the head is in the circle, not how long it's been running — ensuring even angular spacing regardless of speed variations.
+
+```cpp
+float64_t dripMultiplier = analog_a1.read();
+drip_filter.set_ratio(dripRate * dripMultiplier, TWO_PI);
+```
+
+The drip rate is adjustable in real time via a physical potentiometer. This is the key usability feature, and it directly supports our non-CAD-CAM design goal.
+
+```cpp
+encoder_1.output.map(&polar_kinematics.input_radius);
+encoder_2.output.map(&channel_z.input_target_position);
+```
+
+The radius and height aren't typed in, but rather set by physically turning encoders. Again, we utilize a gestural and hands-on approach rather than coordinate-entry.
 
 ## Interacting with SlipDrip
 
