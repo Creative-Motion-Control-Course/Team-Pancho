@@ -18,11 +18,16 @@ Timeline:
 We started off by using the instructor model and understanding it features and how we could modify it to a similar design made by [Constantijn](https://www.youtube.com/watch?v=Q3A4NqTPOYY)
 
 ![Instructor Model](assets/instructormodel.jepg)
-3. Syringe holder and pusher
-4. Removal of weight
-5. Creation of screw in
+2. Syringe holder and pusher
+After consulting with Emile and Alejandro we were able to CAD a simple design that allowed us to use a small syringe to extrude slip. Once it was constructed however it became obvious that we would need to allow for more syringe sizes and a better mechanism to push the plunger of the syringe.
+
+[Extruder Version 1](assets/extruder_v1.jpeg)
+
+3. Creation of screw in
    Started as first a circle then a triangular circular shape
-6. Slot in mecahnism
+4. Slot in mecahnism
+5. Removal of weight
+
 
 
 
