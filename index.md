@@ -34,7 +34,7 @@ title: Home
 | [Project 1 Proposal](projects/project1/docs/proposal.md) |
 | [Project 1 - Vital Lines](projects/project1/docs/index.md) | Plotting sinewaves with live PulseRate data |
 | [Project 2 Proposal](projects/project2/docs/proposal.md) | Drip Glazing Machine for Bisqueware |
-| [Project 2 - Slip Drip](projects/slipdrop/docs/index.md) | Slip Decoration with droplets
+| [Project 2 - Slip Drip](projects/slipdrip/docs/index.md) | Slip Decoration with droplets
 
 
 <!-- Add rows as you complete more projects:
