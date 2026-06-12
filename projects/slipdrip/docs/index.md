@@ -117,43 +117,71 @@ In the end we we’re able to make multiple artifacts from a range of different 
 ## Challenges
 
 1. User Interface
-2. Slip Consistency
-3. Centering
-4. Mechanism Accuracy
+The instruction manual is very thorough but this also means that it is difficult to learn without any instruction or help
+3. Slip Consistency
+The slip changed a lot and the formula of the slip wasn’t formulated just made off of feeling so it made creating more of the “mother slip” impossible and also meant that each test was a guess to see if it would work first
+5. Centering
+The objects at times were not perfectly circular meaning that its impossible to perfectly center and at other times the center of the bat would not mean the center of the object
+7. Mechanism Accuracy
+The slip extrusion rate being a user parameter came out of necessity as the slip needed constant watching to see if it would change and also its hard to know where it actually being put
 
 ## Future Prospects
+
+1. Adding a laser
+Adding a laser to the mechanism would make it clear whether the object is centered and would also help ensure that the drops land where the user actually wants them to.
+2. Sturdier Mechanism
+The mechanism itself needs to be reinforced, as it constantly needed to be checked for retightening and at one point required parts to be reprinted because they no longer worked as well.
+
 
 # Retrospective
 
 ## Interaction and Interface
 
-### Standard -> Custom 
+### `Standard  ○────○────○────●────○  Custom` 
 Does the machine necessitate a novel mechanism (or mechanisms) in any part of its functionality? Does it adapt existing mechanisms
 
-### Walk Up and Use -> Requires Skill / Training 
+Although it adapted from a ender, it was stripped down to its bare essentials and uses a custom mount and extruder mechanism.
+
+### Walk Up and Use  ○────○────○────○────●  Requires Skill / Training
 Would someone need to practice with the machine to use it effectively? Or is the interaction relatively controlled and constrained? What element of risk, if any does the machine introduce?
+
+The need for an instruction and someone who knows the code of the machine means it is highly specialized .
 
 ## Mechanism
 
-### Standard -> Custom 
-Does the machine necessitate a novel mechanism (or mechanisms) in any part of its functionality? Does it adapt existing mechanisms
+### Standard ○────○────○────●────○ Custom
 
-### Underengineered -> Overengineered 
+Does the machine necessitate a novel mechanism (or mechanisms) in any part of its functionality? Does it adapt existing mechanisms?
+The mechanism is adapted from the instructor model; however, the modifications to this model were heavy, and the size changed completely.
+
+### Underengineered ○────○────●────○────○ Overengineered
+
 What is the relationship between the amount of engineering complexity and the application? How robust is the mechanism and how many cycles of operation is it likely to withstand? What level of prototype is the mechanism? How might it be improved?
+We ran multiple cycles and it was able to withstand a lot of wear and tear, so it could feasibly operate; however, this is a minimum viable product, as there is a lot to improve.
 
-### Tool-like -> Machine-like 
+### Tool-like ●────○────○────○────○ Machine-like
+
 How similar is the machine to an automated fabrication technology versus a manual tool?
+It reminds me the most of a lathe, as it repeats the same motion, but the uses of that motion are entirely on the user to imagine.
 
 ## Artifacts
 
-### Refined -> Rough 
+### Refined ○────○────●────○────○ Rough
+
 What is the degree of craftsmanship of the artifacts?
+The uncentered pieces, the small amount of glassware, and the lack of testing make these artifacts inherently rough, as they were produced on a faster timescale than most ceramics.
 
-### Can be produced by other means -> Only feasible with this machine 
+### Other Means ○────●────○────○────○ Only This Machine
+
 Could the artifacts be produced by other means? If so, what would be involved? Does the machine reduce challenges or create new opportunities compared to other workflows for artifact production?
+These highly geometric designs can be produced manually with a large amount of time and effort, measuring and slipping with great intention. This machine reduces the time and effort required, allowing for faster iteration compared to a manual workflow.
 
-### Manual -> Automatically produced 
+### Manual ●────○────○────○────○ Automatically Produced
+
 How much of the artifact is produced through manual means vs automation? Where is the line drawn?
+The only step that is automatically produced in our artifact-creation process is the dropping of the slip; the body, slip preparation, and glazing all rely on a human operator.
 
-### Pre-planned -> Determined during fabrication 
+### Pre-planned ○────○────○────●────○ Determined During Fabrication
+
 To what degree is the design of the artifacts determined/specified in advance of material interaction?
+The body and more are all defined by the user in advance, but during the specific interaction the user is limited in that they can only make circles. However, the complete control offered through the user interface — the z-axis, extrusion rate, and radius — means that much of the motion is left to the user.
