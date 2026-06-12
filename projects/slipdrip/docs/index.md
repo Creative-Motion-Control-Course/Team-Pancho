@@ -17,16 +17,29 @@ Timeline:
 1. Instructor Example
 We started off by using the instructor model and understanding it features and how we could modify it to a similar design made by [Constantijn](https://www.youtube.com/watch?v=Q3A4NqTPOYY)
 
-![Instructor Model](assets/instructormodel.jepg)
+![Instructor Model](assets/instructormodel.jpeg)
+
 2. Syringe holder and pusher
 After consulting with Emile and Alejandro we were able to CAD a simple design that allowed us to use a small syringe to extrude slip. Once it was constructed however it became obvious that we would need to allow for more syringe sizes and a better mechanism to push the plunger of the syringe.
+
+This was our first version of the extruder
 
 [Extruder Version 1](assets/extruder_v1.jpeg)
 
 3. Creation of screw in
-   Started as first a circle then a triangular circular shape
-4. Slot in mecahnism
-5. Removal of weight
+We remembered how we were able to use different size of paintbrushes with an AxiDraw and consulted with our TA and found that we could implement the same system to our machine. We started off with a circle, but we’re advised to use a triangle as it allowed for more syringe diameters to fit into our machine
+
+5. Slot in mechanism
+Using the same advice from how the syringe is held we create a triangular slot for the plunger to sit in so that the slip could be effectively dripped.
+
+6. Removal of weight
+Our instructor then looked at our design with its being able to function with the above specifications but noticed that the entire assembly was to heavy for the design and knew that our mechanism didn’t need to be as big. We replaced the steel rods with aluminum rods and the original lead screw with a 150mm lead screw.
+
+Skipping over assembly, fitting, and other minor issues we we’re able to have our final design to work with
+
+[Final Extruder](assets/finalextruder.jepg)
+
+
 
 
 
