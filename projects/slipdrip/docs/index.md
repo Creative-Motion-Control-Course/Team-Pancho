@@ -11,33 +11,30 @@ Our goal was to create a custom CNC machine that allows the user to create highl
 
 ## Mechanism Design
 
-To start we had to remove all extra components of the Ender, so that we would have the most amount of space to modify the mechanism. From there the main focus was experimenting with different designs of how to best extrude slip from where the former extrusion head was
+To start, we had to remove all the extra components of the Ender so that we would have the most space to modify the mechanism. From there, the main focus was experimenting with different designs for how to best extrude slip from where the former extrusion head had been.
 
 Timeline:
 1. Instructor Example
-We started off by using the instructor model and understanding it features and how we could modify it to a similar design made by [Constantijn](https://www.youtube.com/watch?v=Q3A4NqTPOYY)
-
+We started off by using the instructor model, understanding its features, and figuring out how we could modify it into a design similar to one made by [Constantijn](https://www.youtube.com/watch?v=Q3A4NqTPOYY).
 ![Instructor Model](assets/instructormodel.jpeg)
-
 2. Syringe holder and pusher
-After consulting with Emile and Alejandro we were able to CAD a simple design that allowed us to use a small syringe to extrude slip. Once it was constructed however it became obvious that we would need to allow for more syringe sizes and a better mechanism to push the plunger of the syringe.
+After consulting with Emile and Alejandro, we were able to CAD a simple design that allowed us to use a small syringe to extrude slip. Once it was constructed, however, it became obvious that we would need to accommodate more syringe sizes and a better mechanism to push the plunger.
 
-This was our first version of the extruder
+This was our first version of the extruder.
+![Extruder Version 1](assets/extruder_v1.jpeg)
 
-[Extruder Version 1](assets/extruder_v1.jpeg)
+4. Creation of the screw-in
+We remembered that we were able to use different sizes of paintbrushes with an AxiDraw, so we consulted with our TA and found that we could implement the same system in our machine. We started with a circle, but were advised to use a triangle, as it allowed more syringe diameters to fit.
 
-3. Creation of screw in
-We remembered how we were able to use different size of paintbrushes with an AxiDraw and consulted with our TA and found that we could implement the same system to our machine. We started off with a circle, but we’re advised to use a triangle as it allowed for more syringe diameters to fit into our machine
+6. Slot-in mechanism
+Using the same advice from how the syringe is held, we created a triangular slot for the plunger to sit in so that the slip could be dripped effectively.
 
-5. Slot in mechanism
-Using the same advice from how the syringe is held we create a triangular slot for the plunger to sit in so that the slip could be effectively dripped.
+8. Removal of weight
+Our instructor then looked at our design and confirmed that it functioned with the above specifications, but noticed that the entire assembly was too heavy and that the mechanism didn't need to be as large. We replaced the steel rods with aluminum rods and the original lead screw with a 150 mm lead screw.
 
-6. Removal of weight
-Our instructor then looked at our design with its being able to function with the above specifications but noticed that the entire assembly was to heavy for the design and knew that our mechanism didn’t need to be as big. We replaced the steel rods with aluminum rods and the original lead screw with a 150mm lead screw.
+Skipping over assembly, fitting, and other minor issues, we were able to get our final design working.
 
-Skipping over assembly, fitting, and other minor issues we we’re able to have our final design to work with
-
-[Final Extruder](assets/finalextruder.jepg)
+![Final Extruder](assets/finalextruder.jpeg)
 
 
 
