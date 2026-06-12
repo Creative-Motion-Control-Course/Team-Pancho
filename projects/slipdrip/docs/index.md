@@ -133,7 +133,9 @@ Adding a laser to the mechanism would make it clear whether the object is center
 The mechanism itself needs to be reinforced, as it constantly needed to be checked for retightening and at one point required parts to be reprinted because they no longer worked as well.
 
 # Demo
-[![Demo](https://img.youtube.com/vi/FSjkw4u0cYo/0.jpg)](https://www.youtube.com/watch?v=FSjkw4u0cYo)
+<iframe width="560" height="315"
+  src="https://www.youtube.com/embed/FSjkw4u0cYo"
+  frameborder="0" allowfullscreen></iframe>
 
 
 
