@@ -14,15 +14,15 @@ The aim of this project was to create a custom CNC machine that allows the user 
 
 We began by developing our slip formula. Recycled clay was broken down into progressively finer pieces and combined with water to produce a "mother slip," from which all subsequent slip batches were derived. We tested consistency by manually extruding the slip on a sponge, which successfully resulted in formation of well-defined, cohesive blobs.
 
-![Testing On Sponge](assets/slipsponge.jpeg)
+<img src="assets/slipsponge.jpeg" alt="Testing On Sponge" width="50%">
 
 **Pigmented Slip**
 
 Next, we added pigment to our slips, using Cobalt Carbonate (Blue) and Copper Carbonate (Green).
 
-We referenced this recipe: [The Ceramics Bible](https://www.amazon.com/Ceramics-Bible-Revised-Louisa-Taylor/dp/1797215140/ref=pd_sbs_d_sccl_1_1/141-1527759-0986908?pd_rd_w=jjKfE&content-id=amzn1.sym.aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_p=aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_r=1V6GF4VKX9VRSJRZJX1C&pd_rd_wg=zmXD8&pd_rd_r=c3bc12e0-6cf4-4827-a001-c66b4e96c542&pd_rd_i=1797215140&psc=1) by Louisa Taylor
+We referenced this recipe: [The Ceramics Bible](https://www.amazon.com/Ceramics-Bible-Revised-Louisa-Taylor/dp/1797215140/ref=pd_sbs_d_sccl_1_1/141-1527759-0986908?pd_rd_w=jjKfE&content-id=amzn1.sym.aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_p=aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_r=1V6GF4VKX9VRSJRZJX1C&pd_rd_wg=zmXD8&pd_rd_r=c3bc12e0-6cf4-4827-a001-c66b4e96c542&pd_rd_i=1797215140&psc=1) by Louisa Taylor.
 
-![Pigmented Slip Creation](assets/pigmentedslip.jpeg)
+<img src="assets/pigmentedslip.jpeg" alt="Pigmented Slip Creation" width="50%">
 
 Throughout the project, the slip would naturally dry out over time, so we continually adjusted the recipe — adding water or dried slip as needed — to maintain the appropriate consistency.
 
@@ -34,15 +34,13 @@ We removed all unnecessary components from the Ender to maximize the available s
 
 We began by examining the instructional model, studying its features to understand how it could be adapted into a design similar to [Constantijn](https://www.youtube.com/watch?v=Q3A4NqTPOYY).
 
-![Instructor Model](assets/instructormodel.jpeg)
+<img src="assets/instructormodel.jpeg" alt="Instructor Model" width="50%">
 
 **2. Syringe holder and pusher**
 
 We developed a simple CAD design that used a small syringe to extrude slip. Once constructed, however, it became clear that we would need to accommodate a wider range of syringe sizes and implement a more reliable mechanism for pushing the plunger. This was our first iteration of the extruder:
 
-![Extruder Version 1](assets/extruder_v1.jpeg)
-
-**3. Creation of the Screw-In Mount**
+<img src="assets/extruder_v1.jpeg" alt="Extruder Version 1" width="50%">
 
 **3. Syringe Mount**
 
@@ -58,7 +56,7 @@ Since our overall assembly was unnecessarily bulky, we replaced the steel rods w
 
 Setting aside assembly, fitting, and other minor adjustments, we arrived at a final working design:
 
-![Final Extruder](assets/finalextruder.jpeg)
+<img src="assets/finalextruder.jpeg" alt="Final Extruder" width="50%">
 
 
 ## Software Design
@@ -116,7 +114,7 @@ After refining how we envisioned user-interaction with our machine, we recognize
 3. Zero the X-axis by moving the extruder to the left-most side of the belt.
 4. Zero the Y-axis by moving the print bed to the back of the printer.
 
-![User Interface](assets/controlsystem.JPG)
+<img src="assets/controlsystem.JPG" alt="User Interface" width="50%">
 
 ### Calibrating the Printer
 
@@ -140,7 +138,7 @@ After refining how we envisioned user-interaction with our machine, we recognize
 5. Carefully turn Potentiometer 1 counterclockwise until the extruder drips.
 6. When you are satisfied with the resulting pattern, turn the potentiometer back to 0 to halt the slip extrusion.
 
-![In Operation](assets/inoperation.JPG)
+<img src="assets/inoperation.JPG" alt="In Operation" width="50%">
 
 
 ## Artifacts
@@ -158,7 +156,7 @@ The resulting artifacts encompassed a range of different slip patterns and diffe
   <img src="assets/postkiln1.JPG" alt="Example_2" width="48%">
   <img src="assets/postkiln2.JPG" alt="Example_3" width="48%">
   <img src="assets/postkiln3.JPG" alt="Example_4" width="48%">
-  <img src="postglaze.jpg" alt="Example_5" width="48%">
+  <img src="assets/postglaze.jpg" alt="Example_5" width="48%">
 </div>
 
 ## Challenges
