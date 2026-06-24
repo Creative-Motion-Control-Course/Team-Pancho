@@ -30,27 +30,27 @@ Throughout the project, the slip would naturally dry out over time, so we contin
 
 We removed all unnecessary components from the Ender to maximize the available space for modifying the mechanism. From there, our primary focus was experimenting with different design approaches for extruding slip from the location previously occupied by the extrusion head.
 
-**1. Modifying Instructor Example**
+### 1. Modifying Instructor Example
 
 We began by examining the instructional model, studying its features to understand how it could be adapted into a design similar to [Constantijn](https://www.youtube.com/watch?v=Q3A4NqTPOYY).
 
 <img src="assets/instructormodel.jpeg" alt="Instructor Model" width="50%">
 
-**2. Syringe holder and pusher**
+### 2. Syringe holder and pusher
 
 We developed a simple CAD design that used a small syringe to extrude slip. Once constructed, however, it became clear that we would need to accommodate a wider range of syringe sizes and implement a more reliable mechanism for pushing the plunger. This was our first iteration of the extruder:
 
 <img src="assets/extruder_v1.jpeg" alt="Extruder Version 1" width="50%">
 
-**3. Syringe-Mounting**
+### 3. Syringe-Mounting
 
 Referencing our previous project using an AxiDraw plotter, we drew inspiration from its screw-in mechanism, which holds a pen or brush in place using a simple twist-and-tighten fitting for XY plotting. We adapted this same screw-in approach for our machine, but replaced the pen holder with a triangular cavity sized to hold a syringe barrel securely in place.
 
-**4. Plunger Slot**
+### 4. Plunger Slot
 
 To actuate the syringe, we added a second triangular slot positioned above the screw-mounting plate. This slot holds the end of the plunger in place, allowing it to be pushed downward in a controlled, consistent motion as the mechanism drives it — dispensing the slip effectively.
 
-**5. Weight Reduction**
+### 5. Weight Reduction
 
 Since our overall assembly was unnecessarily bulky, we replaced the steel rods with aluminum rods and substituted the original lead screw with a 150 mm lead screw.
 
