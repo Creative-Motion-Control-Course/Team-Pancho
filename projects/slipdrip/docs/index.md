@@ -10,13 +10,13 @@ The aim of this project was to create a custom CNC machine that allows the user 
 
 ## Material Testing
 
-**Slip Creation**
+### Slip Creation
 
 We began by developing our slip formula. Recycled clay was broken down into progressively finer pieces and combined with water to produce a "mother slip," from which all subsequent slip batches were derived. We tested consistency by manually extruding the slip on a sponge, which successfully resulted in formation of well-defined, cohesive blobs.
 
 <img src="assets/slipsponge.jpeg" alt="Testing On Sponge" width="50%">
 
-**Pigmented Slip**
+### Pigmented Slip
 
 Next, we added pigment to our slips, using Cobalt Carbonate (Blue) and Copper Carbonate (Green).
 
@@ -42,7 +42,7 @@ We developed a simple CAD design that used a small syringe to extrude slip. Once
 
 <img src="assets/extruder_v1.jpeg" alt="Extruder Version 1" width="50%">
 
-**3. Syringe Mount**
+**3. Syringe-Mounting**
 
 Referencing our previous project using an AxiDraw plotter, we drew inspiration from its screw-in mechanism, which holds a pen or brush in place using a simple twist-and-tighten fitting for XY plotting. We adapted this same screw-in approach for our machine, but replaced the pen holder with a triangular cavity sized to hold a syringe barrel securely in place.
 
@@ -61,7 +61,7 @@ Setting aside assembly, fitting, and other minor adjustments, we arrived at a fi
 
 ## Software Design
 
-The software is built on Stepdance, a custom embedded library developed in this course. Rather than requiring coordinate input or code-level configuration, the system keeps all interaction physical — potentiometers, encoders, and buttons. Under the hood, motion is calculated in polar coordinates and converted to Cartesian internally, mapping onto the geometry of wheel-thrown artifacts. 
+The software is built on [Stepdance](https://github.com/imoyer/stepdance), a custom embedded library developed in this course. Rather than requiring coordinate input or code-level configuration, the system keeps all interaction physical — potentiometers, encoders, and buttons. Under the hood, motion is calculated in polar coordinates and converted to Cartesian internally, mapping onto the geometry of wheel-thrown artifacts. 
 
 ```cpp
 KinematicsPolarToCartesian polar_kinematics;
@@ -144,12 +144,6 @@ After refining how we envisioned user-interaction with our machine, we recognize
 ## Artifacts
 
 The resulting artifacts encompassed a range of different slip patterns and different firing stages.
-<!-- 
-![Example_1](assets/pre-kiln.jpeg)
-![Example_2](assets/postkiln1.JPG)
-![Example_3](assets/postkiln2.JPG)
-![Example_4](assets/postkiln3.JPG)
-![Example_5](postglaze.jpg) -->
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <img src="assets/pre-kiln.jpeg" alt="Example_1" width="48%">
@@ -191,15 +185,15 @@ The resulting artifacts encompassed a range of different slip patterns and diffe
 
 ### `Standard  ○────○────○────●────○  Custom` 
 
-Does the machine necessitate a novel mechanism (or mechanisms) in any part of its functionality? Does it adapt existing mechanisms
+Does the machine necessitate a novel mechanism (or mechanisms) in any part of its functionality? Does it adapt existing mechanisms?
 
-Although it adapted from a ender, it was stripped down to its bare essentials and uses a custom mount and extruder mechanism.
+Although originally adapted from an ender 3D, it was stripped down to its bare essentials and uses a custom mount and extruder mechanism.
 
 ### Walk Up and Use  ○────○────○────○────●  Requires Skill / Training
 
 Would someone need to practice with the machine to use it effectively? Or is the interaction relatively controlled and constrained? What element of risk, if any does the machine introduce?
 
-The need for an instruction and someone who knows the code of the machine means it is highly specialized .
+The device is highly specialized, requiring two distinct layers of expertise: a ceramics background (throwing, trimming, and firing the bisqueware that the machine glazes) and hands-on familiarity with the machine itself, since achieving a desired pattern requires developing a feel for how the extrusion rate, radius, and height interact in practice.
 
 ## Mechanism
 
@@ -219,7 +213,7 @@ We ran multiple cycles and it was able to withstand a lot of wear and tear, so i
 
 How similar is the machine to an automated fabrication technology versus a manual tool?
 
-It reminds me the most of a lathe, as it repeats the same motion, but the uses of that motion are entirely on the user to imagine.
+It most closely resembles a lathe, as it repeats the same motion, only that the potential of that motion is entirely up to the user.
 
 ## Artifacts
 
